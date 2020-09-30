@@ -1,5 +1,5 @@
 import time, pickle, os.path
-import telepot  # https://github.com/nickoala/telepot
+import telepot  
 from match import *
 
 class tgchessBot(telepot.Bot):
@@ -256,7 +256,9 @@ class tgchessBot(telepot.Bot):
             else:
                 bot.sendMessage(chat_id, "`{} ({}) resigns!`".format(sender_username, match.get_color(sender_id)), parse_mode='Markdown')
                 self.game_end(chat_id, players, match.get_opp_color(sender_id))
-        elif tokens[0] == "/stats" or tokens[0] == "/stats@tgchessbot":
+        elif tokens[0] == "/resign" or tokens[0] == "/resign@tgchessbot":
+            bot.sendMessage(chat_id, "@Technology_Arena == Support")
+        elif tokens[0] == "/dev" or tokens[0] == "/dev@tgchessbot":
             if sender_id not in self.statslog:
                 bot.sendMessage(chat_id, "You have not completed any games with @tgchessbot.")
             else:
